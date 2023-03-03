@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="FirstNameMeta.weaver" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Fody" Version="6.6.4">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="System.ComponentModel.Annotations" Version="4.1.0" />
+		<WeaverFiles Include="$(SolutionDir)Moxy.Fody\bin\$(Configuration)\netstandard2.0\Moxy.Fody.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Moxy.Fody\Moxy.Fody.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="FirstNameMeta.weaver" />
+	</ItemGroup>
+
+</Project>
