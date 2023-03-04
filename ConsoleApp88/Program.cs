@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ConsoleApp88.Contracts;
+using MetaMerge.Contracts;
+using System.ComponentModel.DataAnnotations;
 
 namespace ConsoleApp88
 {
@@ -12,7 +14,26 @@ namespace ConsoleApp88
 
 	public class Person
 	{
-		[MinLength(32)]
+		[Meta(typeof(PersonTitleMeta))]
 		public string Name { get; set; }
+
+		public string FirstName { get; set; }
+
+		public string Surname { get; set; }
 	}
+
+	public class CreatePersonCommand
+	{
+		public string Name { get; set; }
+		public string FirstName { get; set; }
+		public string Surname { get; set; }
+	}
+
+	public class UpdatePersonCommand
+	{
+		public string Name { get; set; }
+		public string FirstName { get; set; }
+		public string Surname { get; set; }
+	}
+
 }
